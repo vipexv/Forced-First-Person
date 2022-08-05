@@ -31,16 +31,40 @@ CreateThread(function()
     end
 end)
 
-
 if Config.Options.VehicleOnly then
-    CreateThread(function()
-        while inVeh do
-            Wait(1)
-            if IsPedDoingDriveby(ped) then
-                SetFollowVehicleCamViewMode(4)
+CreateThread(function()
+            while true do
+            sleep = 1000
+            if IsPedInAnyVehicle(PlayerPedId()) then --Lets make an extra check. If ped is in a vehicle, then we wake the loop. else we put it back to sleep
+                sleep = 1
+                if IsPedDoingDriveby(PlayerPedId()) then
+                    SetFollowVehicleCamViewMode(4)
+                else
+                    SetFollowVehicleCamViewMode(0)
+                end
             else
-                SetFollowVehicleCamViewMode(0)
+                sleep = 1000
             end
+            Wait(sleep)
+            end
+        end)
+    end
+
+
+
+if Config.EnteringVehicle then
+    CreateThread(function()
+        while true do
+            sleep = 1000
+            if IsPedInAnyVehicle(PlayerPedId()) then
+                sleep = 1
+            else
+                sleep = 1000
+        if GetPedInVehicleSeat(inVeh, -1) then
+        SetFollowVehicleCamViewMode(4)
+                end
+            end
+            Wait(sleep)
         end
     end)
 end
