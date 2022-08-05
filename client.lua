@@ -9,25 +9,28 @@ CreateThread(function()
     end
 end)
 
-if Config.Options.ForcedFirst then
-    CreateThread(function()
-        local plyId = PlayerId()
 
+CreateThread(function()
+    if Config.Options.ForcedFirst then 
         while true do
-            Wait(1)
-            if IsPlayerFreeAiming(plyId) then
-                SetFollowPedCamViewMode(4)
+            sleep = 1000
+            local _, weapon = GetCurrentPedWeapon(PlayerPedId())
+            local unarmed = `WEAPON_UNARMED`
+            if weapon == unarmed then
+                sleep = 1000
             else
-                SetFollowPedCamViewMode(0)
+                sleep = 1
+                if IsPlayerFreeAiming(PlayerId()) then
+                    SetFollowPedCamViewMode(4)
+                else
+                    SetFollowPedCamViewMode(0)
+                end
             end
-            if IsPedDoingDriveby(ped) then
-                SetFollowVehicleCamViewMode(4)
-            else
-                SetFollowVehicleCamViewMode(0)
-            end
+        Wait(sleep)
         end
-    end)
-end
+    end
+end)
+
 
 if Config.Options.VehicleOnly then
     CreateThread(function()
