@@ -35,7 +35,7 @@ if Config.Options.VehicleOnly then
 CreateThread(function()
             while true do
             sleep = 1000
-            if IsPedInAnyVehicle(PlayerPedId()) then --Lets make an extra check. If ped is in a vehicle, then we wake the loop. else we put it back to sleep
+            if IsPedInAnyVehicle(PlayerPedId()) then
                 sleep = 1
                 if IsPedDoingDriveby(PlayerPedId()) then
                     SetFollowVehicleCamViewMode(4)
