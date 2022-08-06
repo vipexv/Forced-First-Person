@@ -5,8 +5,8 @@ if Config.Options.ForcedFirst then
     CreateThread(function()
         while true do
             sleep = 1000
-            local weapon = GetCurrentPedWeapon(PlayerPedId())
-            local unarmed = "WEAPON_UNARMED"
+            local _, weapon = GetCurrentPedWeapon(PlayerPedId())
+            local unarmed = `WEAPON_UNARMED`
             if weapon == unarmed then
                 sleep = 1000
             else
