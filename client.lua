@@ -1,8 +1,8 @@
 local ped = PlayerPedId()
 local inVeh = IsPedInAnyVehicle(ped, true)
 
-CreateThread(function()
-      if Config.Options.ForcedFirst then 
+if Config.Options.ForcedFirst then 
+    CreateThread(function()
         while true do
             sleep = 1000
             local weapon = GetCurrentPedWeapon(PlayerPedId())
@@ -19,11 +19,11 @@ CreateThread(function()
             end
         Wait(sleep)
         end
-    end
-end)
+    end)
+end
 
+if Config.Options.VehicleOnly then
     CreateThread(function()
-        if Config.Options.VehicleOnly then
         while true do
             sleep = 1000
             if IsPedInAnyVehicle(PlayerPedId()) then
@@ -41,9 +41,7 @@ end)
     end)
 end
 
-
-
-
+if Config.EnteringVehicle then
     CreateThread(function()
         if Config.EnteringVehicle then
         while true do
@@ -54,9 +52,10 @@ end
                 sleep = 1000
                 if GetPedInVehicleSeat(inVeh, -1) then
                     SetFollowVehicleCamViewMode(4)
-                end
+                        end
+                    end
+                Wait(sleep)
             end
-            Wait(sleep)
         end
     end)
 end
