@@ -1,8 +1,8 @@
 local ped = PlayerPedId()
 local inVeh = IsPedInAnyVehicle(ped, true)
 
+if Config.Options.ForcedFirst then 
 CreateThread(function()
-    if Config.Options.ForcedFirst then 
         while true do
             sleep = 1000
             local weapon = GetCurrentPedWeapon(PlayerPedId())
