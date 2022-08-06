@@ -26,7 +26,9 @@ if Config.Options.VehicleOnly then
     CreateThread(function()
         while true do
             sleep = 1000
-            if IsPedInAnyVehicle(PlayerPedId()) then
+            local _, weapon = GetCurrentPedWeapon(PlayerPedId())
+            local unarmed = `WEAPON_UNARMED`
+            if IsPedInAnyVehicle(PlayerPedId()) and weapon ~= unarmed then -- Message by vipex: Added an Extra check to lower resmon, if the player's weapon is Unarmed when inside of the Vehicle the Resmon will be 0.00.
                 sleep = 1
                 if IsPedDoingDriveby(PlayerPedId()) then
                     SetFollowVehicleCamViewMode(4)
