@@ -22,7 +22,7 @@ if Config.Options.ForcedFirst then
     end)
 end
 
-if Config.Options.VehicleOnly then
+if Config.Options.Vehicle then
     CreateThread(function()
         while true do
             sleep = 1000
