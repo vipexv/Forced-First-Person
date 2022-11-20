@@ -69,7 +69,6 @@ end
 
 if Config.EnteringVehicle then
     CreateThread(function()
-        if Config.EnteringVehicle then
         while true do
             sleep = 1000
             if IsPedInAnyVehicle(PlayerPedId()) then
