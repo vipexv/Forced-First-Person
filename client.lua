@@ -6,7 +6,7 @@ if Config.Options.ForcedFirst then
         while true do
             sleep = 1000
             local _, weapon = GetCurrentPedWeapon(PlayerPedId())
-            local unarmed = WEAPON_UNARMED
+            local unarmed = `WEAPON_UNARMED`
             if weapon == unarmed then
                 sleep = 1000
             else
@@ -28,7 +28,7 @@ if Config.Options.Vehicle then
             sleep = 1000
             local bike = IsPedOnAnyBike(ped)
             local _, weapon = GetCurrentPedWeapon(PlayerPedId())
-            local unarmed = WEAPON_UNARMED
+            local unarmed = `WEAPON_UNARMED`
             if IsPedInAnyVehicle(ped) and weapon ~= unarmed then
                 sleep = 1
                 if IsPedDoingDriveby(PlayerPedId()) then
@@ -50,7 +50,7 @@ if Config.Options.Bike then
         while true do
             sleep = 1000
             local _, weapon = GetCurrentPedWeapon(PlayerPedId())
-            local unarmed = WEAPON_UNARMED
+            local unarmed = `WEAPON_UNARMED`
             if IsPedOnAnyBike(PlayerPedId()) and weapon ~= unarmed then
                 sleep = 1
                 if IsControlJustPressed(0, 25) then
