@@ -26,7 +26,7 @@ if Config.Options.Vehicle then
     CreateThread(function()
         while true do
             sleep = 1000
-            local bike = IsPedOnAnyBike(ped)
+            local bike = IsPedOnAnyBike(PlayerPedId())
             local _, weapon = GetCurrentPedWeapon(PlayerPedId())
             local unarmed = `WEAPON_UNARMED`
             if IsPedInAnyVehicle(ped) and weapon ~= unarmed then
