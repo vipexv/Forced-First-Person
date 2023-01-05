@@ -22,28 +22,25 @@ if Config.Options.ForcedFirst then
     end)
 end
 
+
 if Config.Options.Vehicle then
-    CreateThread(function()
-        while true do
-            sleep = 1000
-        local ped = PlayerPedId()
-        local bike = IsPedOnAnyBike(ped)
-        local _, weapon = GetCurrentPedWeapon(PlayerPedId())
+CreateThread(function()
+    while true do
+        sleep = 1000
+        local _, weapon = GetCurrentPedWeapon(ped)
         local unarmed = `WEAPON_UNARMED`
-            if IsPedInAnyVehicle(ped) and weapon ~= unarmed then
-                sleep = 1
+        if inVeh and weapon ~= unarmed then
+            sleep = 1
             if IsPedDoingDriveby(ped) then
-        SetFollowVehicleCamViewMode(4)
-        else
-    SetFollowVehicleCamViewMode(0)
-                    end
-                else
-            sleep = 1000
-        end
-        Wait(sleep)
+                SetFollowVehicleCamViewMode(4)
+            else
+                SetFollowVehicleCamViewMode(0)
                 end
-            end)
+            end
+            Wait(sleep)
         end
+    end)
+end
 
 
 if Config.Options.Bike then
@@ -66,23 +63,3 @@ if Config.Options.Bike then
         end
     end)
 end
-
-
-if Config.EnteringVehicle then
-    CreateThread(function()
-        while true do
-            sleep = 1000
-            if IsPedInAnyVehicle(PlayerPedId()) then
-                sleep = 1
-            else
-                sleep = 1000
-                if GetPedInVehicleSeat(inVeh, -1) then
-                    SetFollowVehicleCamViewMode(4)
-                        end
-                    end
-                Wait(sleep)
-            end
-        end
-    end)
-end
-
