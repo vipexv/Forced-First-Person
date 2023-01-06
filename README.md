@@ -14,7 +14,7 @@ Feel Free to Inform me of any type of bugs.**
 * Config Option for Forced first person Aiming/Shooting.
 * Config Option for Forced First person if the player is driving a vehicle. (Only the Driver, not the other players.)
 * Config Option for Forced First Person When Aiming/Shooting On A Bike Added.
-* When it’s not being used the resmon is 0.00.*
+* When it’s not being used the resmon is 0.00.
 
 
 
