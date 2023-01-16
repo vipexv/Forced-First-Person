@@ -63,7 +63,6 @@ if Config.Options.Bike then
     end)
 end
 
-
 AddEventHandler('onResourceStart' function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
         return
