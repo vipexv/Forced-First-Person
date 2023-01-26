@@ -19,6 +19,5 @@ Feel Free to Inform me of any type of bugs.**
 
 
 # Installation
-This script is standalone so:
 1. Drag and drop into your resources folder.
 2. Go to your Server.cfg and simply ensure the resource, `ensure Forced-First-Person`.
