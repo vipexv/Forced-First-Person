@@ -10,7 +10,7 @@ Feel Free to Inform me of any type of bugs.**
 
 
 # Features:
-* Config option for forcing first person specifically when Aiming/Shooting inside of a vehicle.
+* Config Option for forcing first person specifically when Aiming/Shooting inside of a vehicle.
 * Config Option for Forced first person Aiming/Shooting.
 * Config Option for Forced First person if the player is driving a vehicle. (Only the Driver, not the other players.)
 * Config Option for Forced First Person When Aiming/Shooting On A Bike Added.
