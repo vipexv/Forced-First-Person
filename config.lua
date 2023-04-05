@@ -7,3 +7,4 @@ Config.Options = {
     ForcedFirst = false, -- Forced First Person when the player is Aiming/Shooting.
     Bike = true, -- Enables forced first person when Aiming/Shooting On a Bike.
 }
+ww
