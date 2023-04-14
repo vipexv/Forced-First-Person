@@ -62,10 +62,3 @@ if Config.Options.Bike then
         end
     end)
 end
-
-AddEventHandler('onResourceStart', function(resourceName)
-    if (GetCurrentResourceName() ~= resourceName) then
-        return
-    end
-    print('Version 2.5 Of Forced First Person Has Started.')
-end)
