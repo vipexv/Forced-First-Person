@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
-author 'vipex#2027'
+author 'Discord: vipex.v'
 description 'Forced First Person with Multiple Options.'
 version '2.5'
 
