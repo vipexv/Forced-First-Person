@@ -1,4 +1,4 @@
-if Config.Options.ForcedFirst then 
+if Config.Options.ForcedFirst then
     CreateThread(function()
         while true do
             sleep = 1000
@@ -9,31 +9,31 @@ if Config.Options.ForcedFirst then
             else
                 sleep = 1
                 if IsPlayerFreeAiming(PlayerId()) then
-                    SetFollowPedCamViewMode(4)
+                    SetFollowPedCamViewMode(3)
                 else
                     SetFollowPedCamViewMode(0)
                 end
             end
-        Wait(sleep)
+            Wait(sleep)
         end
     end)
 end
 
 
 if Config.Options.Vehicle then
-CreateThread(function()
-    while true do
-        local ped = PlayerPedId()
-        local _, weapon = GetCurrentPedWeapon(ped)
-        local unarmed = `WEAPON_UNARMED`
-        local inVeh = GetVehiclePedIsIn(PlayerPedId(), false)
+    CreateThread(function()
+        while true do
+            local ped = PlayerPedId()
+            local _, weapon = GetCurrentPedWeapon(ped)
+            local unarmed = `WEAPON_UNARMED`
+            local inVeh = GetVehiclePedIsIn(PlayerPedId(), false)
             sleep = 1000
-        if IsPedInAnyVehicle(PlayerPedId()) and weapon ~= unarmed then
-            sleep = 1
-            if IsPedDoingDriveby(PlayerPedId()) then
-                SetFollowVehicleCamViewMode(4)
-            else
-                SetFollowVehicleCamViewMode(0)
+            if IsPedInAnyVehicle(PlayerPedId()) and weapon ~= unarmed then
+                sleep = 1
+                if IsControlJustPressed(0, 25) then
+                    SetFollowVehicleCamViewMode(3)
+                elseif IsControlJustReleased(0, 25) then
+                    SetFollowVehicleCamViewMode(0)
                 end
             end
             Wait(sleep)
@@ -51,7 +51,7 @@ if Config.Options.Bike then
             if IsPedOnAnyBike(PlayerPedId()) and weapon ~= unarmed then
                 sleep = 1
                 if IsControlJustPressed(0, 25) then
-                    SetCamViewModeForContext(2, 4)
+                    SetCamViewModeForContext(2, 3)
                 elseif IsControlJustReleased(0, 25) then
                     SetCamViewModeForContext(2, 0)
                 end
